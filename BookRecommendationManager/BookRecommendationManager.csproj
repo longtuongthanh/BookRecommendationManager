@@ -52,21 +52,40 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -75,6 +94,77 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\256942.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\120273364_805930653283173_312896725945596210_n.jpg" />
+    <Content Include="Resources\120388431_402584604303321_7388140591368415345_n.jpg" />
+    <Content Include="Resources\130304.png" />
+    <Content Include="Resources\1303041.png" />
+    <Content Include="Resources\1303042.png" />
+    <Content Include="Resources\25694.png" />
+    <Content Include="Resources\256941.png" />
+    <Content Include="Resources\81mWACgHKxL.jpg" />
+    <Content Include="Resources\book %281%29.png" />
+    <Content Include="Resources\book %282%29.png" />
+    <Content Include="Resources\book %283%29.png" />
+    <Content Include="Resources\book %284%29.png" />
+    <Content Include="Resources\book %284%291.png" />
+    <Content Include="Resources\book.jpg" />
+    <Content Include="Resources\book.png" />
+    <Content Include="Resources\book1.png" />
+    <Content Include="Resources\book2.png" />
+    <Content Include="Resources\book3.png" />
+    <Content Include="Resources\books.png" />
+    <Content Include="Resources\c63dd809-9491-452f-bfeb-758ba49ecdb9.jpg" />
+    <Content Include="Resources\c63dd809-9491-452f-bfeb-758ba49ecdb91.jpg" />
+    <Content Include="Resources\close %281%29.png" />
+    <Content Include="Resources\close %282%29.png" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\diary %281%29.png" />
+    <Content Include="Resources\diary %282%29.png" />
+    <Content Include="Resources\diary.png" />
+    <Content Include="Resources\Dislike%28disabled%29.png" />
+    <Content Include="Resources\Dislike.png" />
+    <Content Include="Resources\doubt %281%29.png" />
+    <Content Include="Resources\doubt.png" />
+    <Content Include="Resources\doubt1.png" />
+    <Content Include="Resources\download.png" />
+    <Content Include="Resources\full-size %281%29.png" />
+    <Content Include="Resources\full-size.png" />
+    <Content Include="Resources\home %281%29.png" />
+    <Content Include="Resources\home %282%29.png" />
+    <Content Include="Resources\home %282%291.png" />
+    <Content Include="Resources\home %283%29.png" />
+    <Content Include="Resources\home.png" />
+    <Content Include="Resources\levels %281%29.png" />
+    <Content Include="Resources\levels.png" />
+    <Content Include="Resources\levels1.png" />
+    <Content Include="Resources\Like%28disabled%29.png" />
+    <Content Include="Resources\Like.png" />
+    <Content Include="Resources\logo1.ico" />
+    <Content Include="Resources\magnifiying-glass %281%29.png" />
+    <Content Include="Resources\magnifiying-glass.png" />
+    <Content Include="Resources\minimize %281%29.png" />
+    <Content Include="Resources\minimize.png" />
+    <Content Include="Resources\minus.png" />
+    <Content Include="Resources\photo-album.png" />
+    <Content Include="Resources\remove.png" />
+    <Content Include="Resources\resize.png" />
+    <Content Include="Resources\sach.png" />
+    <Content Include="Resources\sacsh.jpg" />
+    <Content Include="Resources\study %281%29.png" />
+    <Content Include="Resources\study.png" />
+    <Content Include="Resources\user %281%29.png" />
+    <Content Include="Resources\user %281%291.png" />
+    <Content Include="Resources\user %282%29.png" />
+    <Content Include="Resources\user.png" />
+    <Content Include="Resources\user1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
