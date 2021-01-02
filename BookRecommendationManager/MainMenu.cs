@@ -15,7 +15,7 @@ namespace BookRecommendationManager
         public MainMenu()
         {
             InitializeComponent();
-            FormHome frmHome = new FormHome() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormCS frmHome = new FormCS() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmHome.FormBorderStyle = FormBorderStyle.None;
             this.panelLoad.Controls.Add(frmHome);
             frmHome.Show();
@@ -43,11 +43,9 @@ namespace BookRecommendationManager
 
         private void butHome_Click(object sender, EventArgs e)
         {
-            foreach (Control item in this.panelLoad.Controls)
-                item.Dispose();
+            ClearPanelLoad();
 
-            this.panelLoad.Controls.Clear();
-            FormHome frmHome = new FormHome() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormCS frmHome = new FormCS() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmHome.FormBorderStyle = FormBorderStyle.None;
             this.panelLoad.Controls.Add(frmHome);
             frmHome.Show();
@@ -55,68 +53,35 @@ namespace BookRecommendationManager
 
         private void butMybooks_Click(object sender, EventArgs e)
         {
-            foreach (Control item in this.panelLoad.Controls)
-                item.Dispose();
+            ClearPanelLoad();
 
-            this.panelLoad.Controls.Clear();
-
-            FormMyBooks frmMB = new FormMyBooks() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmMB.FormBorderStyle = FormBorderStyle.None;
-            this.panelLoad.Controls.Add(frmMB);
-            frmMB.Show();
-        }           
-        private void butAcc_Click(object sender, EventArgs e)
-        {
-            foreach (Control item in this.panelLoad.Controls)
-                item.Dispose();
-
-            this.panelLoad.Controls.Clear();
-
-            FormAcc frmAcc = new FormAcc() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmAcc.FormBorderStyle = FormBorderStyle.None;
-            this.panelLoad.Controls.Add(frmAcc);
-            frmAcc.Show();
-        }
-
-        private void butHelp_Click(object sender, EventArgs e)
-        {
-            foreach (Control item in this.panelLoad.Controls)
-                item.Dispose();
-
-            this.panelLoad.Controls.Clear();
-
-            FormHelp frmHelp = new FormHelp() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmHelp.FormBorderStyle = FormBorderStyle.None;
-            this.panelLoad.Controls.Add(frmHelp);
-            frmHelp.Show();
-        }
-
-
-        private void butSearch_Click(object sender, EventArgs e)
-        {
-            foreach (Control item in this.panelLoad.Controls)
-                item.Dispose();
-
-            this.panelLoad.Controls.Clear();
-
-            frmSearch frmSearch = new frmSearch() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmSearch.FormBorderStyle = FormBorderStyle.None;
-            frmSearch.SearchCriteria = textBox1.Text;
-            this.panelLoad.Controls.Add(frmSearch);
-            frmSearch.Show();
+            FormBug frmBug = new FormBug() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmBug.FormBorderStyle = FormBorderStyle.None;
+            this.panelLoad.Controls.Add(frmBug);
+            frmBug.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ClearPanelLoad();
+
+            FormBug frmBug = new FormBug() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmBug.FormBorderStyle = FormBorderStyle.None;
+            this.panelLoad.Controls.Add(frmBug);
+            frmBug.Show();
+        }
+
+        public void ClearPanelLoad()
+        {
             foreach (Control item in this.panelLoad.Controls)
-                item.Dispose();
+            {
+                if (item is Form)
+                    (item as Form).Hide();
+                else
+                    item.Dispose();
+            }
 
             this.panelLoad.Controls.Clear();
-
-            AddBooks frmadd = new AddBooks { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmadd.FormBorderStyle = FormBorderStyle.None;
-            this.panelLoad.Controls.Add(frmadd);
-            frmadd.Show();
         }
     }
 }

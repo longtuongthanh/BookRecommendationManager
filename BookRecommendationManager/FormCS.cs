@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookRecommendationManager.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,24 +18,23 @@ namespace BookRecommendationManager
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void FormCS_Load(object sender, EventArgs e)
         {
+            int bookCount = Database.Books.Count;
+            label5.Text = Database.Books.Count.ToString();
+            label6.Text = Database.Books.Count(
+                item => item.Comment != null && item.Comment.Count > 0
+                ).ToString();
+            label7.Text = Database.Errors.Count.ToString();
 
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            for (int i = 0; i< Database.Tags.Count; i++)
+            {
+                string tag = Database.Tags[i];
+                dataGridView1.Rows.Insert(i, tag,
+                    (Database.Books.Count(
+                        item => item.Tags.Contains(tag)
+                        ) / (double) bookCount * 100).ToString() + " %");
+            }
         }
     }
 }

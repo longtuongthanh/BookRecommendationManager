@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BookRecommendationManager.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="firebaseApiKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AIzaSyDu098TxwLgFJsfaenUPBfC1z9jyGGT2N8</Value>
+    </Setting>
+    <Setting Name="databaseURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://fir-test-bd7d1.firebaseio.com</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

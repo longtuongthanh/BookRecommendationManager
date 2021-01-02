@@ -35,14 +35,12 @@
             this.butHome = new System.Windows.Forms.Button();
             this.butMybooks = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.butHelp = new System.Windows.Forms.Button();
-            this.butExit = new System.Windows.Forms.Button();
-            this.butMax = new System.Windows.Forms.Button();
-            this.butMin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLoad1 = new System.Windows.Forms.Panel();
             this.panelLoad = new System.Windows.Forms.Panel();
+            this.butExit = new System.Windows.Forms.Button();
+            this.butMax = new System.Windows.Forms.Button();
+            this.butMin = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelLoad1.SuspendLayout();
@@ -143,8 +141,6 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.butHelp);
             this.panel4.Controls.Add(this.butExit);
             this.panel4.Controls.Add(this.butMax);
             this.panel4.Controls.Add(this.butMin);
@@ -156,29 +152,37 @@
             this.panel4.Size = new System.Drawing.Size(750, 57);
             this.panel4.TabIndex = 13;
             // 
-            // panel3
+            // panel1
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(524, 6);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1, 49);
-            this.panel3.TabIndex = 4;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(653, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1, 49);
+            this.panel1.TabIndex = 4;
             // 
-            // butHelp
+            // panelLoad1
             // 
-            this.butHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butHelp.FlatAppearance.BorderSize = 0;
-            this.butHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butHelp.Image = global::BookRecommendationManager.Properties.Resources.doubt__1_;
-            this.butHelp.Location = new System.Drawing.Point(586, -2);
-            this.butHelp.Margin = new System.Windows.Forms.Padding(2);
-            this.butHelp.Name = "butHelp";
-            this.butHelp.Size = new System.Drawing.Size(45, 65);
-            this.butHelp.TabIndex = 4;
-            this.butHelp.UseVisualStyleBackColor = true;
-            this.butHelp.Click += new System.EventHandler(this.butHelp_Click);
+            this.panelLoad1.Controls.Add(this.panelLoad);
+            this.panelLoad1.Controls.Add(this.panel4);
+            this.panelLoad1.Controls.Add(this.panel2);
+            this.panelLoad1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoad1.Location = new System.Drawing.Point(0, 0);
+            this.panelLoad1.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLoad1.Name = "panelLoad1";
+            this.panelLoad1.Size = new System.Drawing.Size(975, 569);
+            this.panelLoad1.TabIndex = 7;
+            // 
+            // panelLoad
+            // 
+            this.panelLoad.BackColor = System.Drawing.Color.White;
+            this.panelLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoad.Location = new System.Drawing.Point(225, 57);
+            this.panelLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLoad.Name = "panelLoad";
+            this.panelLoad.Size = new System.Drawing.Size(750, 512);
+            this.panelLoad.TabIndex = 14;
             // 
             // butExit
             // 
@@ -222,38 +226,6 @@
             this.butMin.UseVisualStyleBackColor = true;
             this.butMin.Click += new System.EventHandler(this.butMin_Click_1);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(653, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 49);
-            this.panel1.TabIndex = 4;
-            // 
-            // panelLoad1
-            // 
-            this.panelLoad1.Controls.Add(this.panelLoad);
-            this.panelLoad1.Controls.Add(this.panel4);
-            this.panelLoad1.Controls.Add(this.panel2);
-            this.panelLoad1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLoad1.Location = new System.Drawing.Point(0, 0);
-            this.panelLoad1.Margin = new System.Windows.Forms.Padding(2);
-            this.panelLoad1.Name = "panelLoad1";
-            this.panelLoad1.Size = new System.Drawing.Size(975, 569);
-            this.panelLoad1.TabIndex = 7;
-            // 
-            // panelLoad
-            // 
-            this.panelLoad.BackColor = System.Drawing.Color.White;
-            this.panelLoad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLoad.Location = new System.Drawing.Point(225, 57);
-            this.panelLoad.Margin = new System.Windows.Forms.Padding(2);
-            this.panelLoad.Name = "panelLoad";
-            this.panelLoad.Size = new System.Drawing.Size(750, 512);
-            this.panelLoad.TabIndex = 14;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,8 +255,6 @@
         private System.Windows.Forms.Button butHome;
         private System.Windows.Forms.Button butMybooks;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button butHelp;
         private System.Windows.Forms.Button butExit;
         private System.Windows.Forms.Button butMax;
         private System.Windows.Forms.Button butMin;

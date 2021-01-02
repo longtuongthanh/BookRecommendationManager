@@ -29,27 +29,27 @@ namespace BookRecommendationManager
 
         private void butLog_Click(object sender, EventArgs e)
         {
-            if (!firebase.SignIn(Username.Text, Password.Text))
+            if (!Firebase.Ins.SignIn(Username.Text, Password.Text))
             {
                 DialogResult result =
                         MessageBox.Show(SignUpYesNoPromptContent,
                         SignUpPromptTitle, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    if (!firebase.SignUp(Username.Text, Password.Text))
+                    if (!Firebase.Ins.SignUp(Username.Text, Password.Text))
                     {
                         MessageBox.Show(SignUpFailedPrompt);
                         return;
                     }
                 }
-                else if (!firebase.SignIn(Username.Text, Password.Text))
+                else if (!Firebase.Ins.SignIn(Username.Text, Password.Text))
                 {
                     MessageBox.Show(SignInFailedPrompt);
                     return;
                 }
             }
 
-            if (!firebase.LoadFirebase())
+            if (!Firebase.Ins.LoadFirebase())
             {
                 MessageBox.Show(LoadDataFromFirebaseFailed);
                 return;
@@ -60,19 +60,19 @@ namespace BookRecommendationManager
         private void OpenMainMenu()
         {
             MainMenu mMenu = new MainMenu();
-            mMenu.Show();
             mMenu.FormClosing += (obj, arg) => { this.Visible = true; };
             this.Visible = false;
+            mMenu.ShowDialog();
         }
 
         private void butRe_Click(object sender, EventArgs e)
         {
-            if (!firebase.SignUp(Username.Text, Password.Text))
+            if (!Firebase.Ins.SignUp(Username.Text, Password.Text))
             {
                 MessageBox.Show(SignUpFailedPrompt);
                 return;
             }
-            if (!firebase.LoadFirebase())
+            if (!Firebase.Ins.LoadFirebase())
             {
                 MessageBox.Show(LoadDataFromFirebaseFailed);
                 return;
@@ -84,8 +84,6 @@ namespace BookRecommendationManager
         {
 
         }
-
-        Firebase firebase = Firebase.Ins;
 
         #region Constant
         private const string SignUpFailedPrompt =
