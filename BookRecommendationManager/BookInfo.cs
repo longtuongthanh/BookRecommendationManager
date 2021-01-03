@@ -37,12 +37,11 @@ namespace BookRecommendationManager
                 tag.Show();
             }
             cmtList = book.Comment;
-            foreach (var item in book.Comment)
+            foreach (var item in book.BaoCao)
             {
                 cmt c = new cmt();
                 c.hienthi(item);
                 flowLayoutPanel2.Controls.Add(c);
-
 
             }  
             Picture pic = book.GetPicture();
@@ -94,31 +93,13 @@ namespace BookRecommendationManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Merge conflict
+            MainMenu owner = Parent.Parent.Parent as MainMenu;
+            owner.ClearPanelLoad();
 
-            FormRP frmRP = new FormRP(currentBook);
-            frmRP.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Comment cmt = new Comment { Content = textBox1.Text, Uid = Database.User.Uid };
-            cmtList.Add( cmt);
-
-            cmt c = new cmt();
-            c.hienthi(cmt);
-            flowLayoutPanel2.Controls.Add(c);
-
-            textBox1.Text = "";
-            textBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-
-            currentBook.Comment = cmtList;
-            Database.Edit(currentBook);
-        }
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox1.Text = "";
-            textBox1.ForeColor = System.Drawing.SystemColors.InfoText;
+            EditBooks frmEdit = new EditBooks(currentBook) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmEdit.FormBorderStyle = FormBorderStyle.None;
+            owner.panelLoad.Controls.Add(frmEdit);
+            frmEdit.Show();
         }
         int? deltaDistanceP5_F3 = null;
         void MaintainDistanceOfPanel5AndFlowPanel3()
@@ -132,10 +113,27 @@ namespace BookRecommendationManager
             MaintainDistanceOfPanel5AndFlowPanel3();
             labelDesc.MaximumSize = new System.Drawing.Size(flowLayoutPanel3.Width, 0);
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        
+        private void button1_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Bạn có chắc bạn muốn xóa sách không?", "Xác nhận", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                Database.Delete(currentBook);
+                this.Hide();
+            }
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Bạn có chắc bạn muốn xóa tất cả báo cáo không?", "Xác nhận", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                currentBook.BaoCao.Clear();
+                Database.Edit(currentBook);
+
+                flowLayoutPanel2.Controls.Clear();
+            }
         }
     }
 }

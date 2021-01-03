@@ -75,6 +75,29 @@ namespace BookRecommendationManager.Model
             }
             Util.StopLoadingForCursor();
         }
+        static public void Delete(Book book)
+        {
+            Util.StartLoadingForCursor();
+            try
+            {
+                if (book.IsValid())
+                {
+                    Firebase.Ins.Client.Child("Books").Child(book.Name).DeleteAsync().Wait();
+                    Books.Remove(book);
+                    UserActive();
+                }
+                else
+                {
+                    PostError("ERROR: book name is null \nAt Database::Delete(book) with current Book: " +
+                        JsonConvert.SerializeObject(book));
+                }
+            }
+            catch (Exception e)
+            {
+                PostError(e);
+            }
+            Util.StopLoadingForCursor();
+        }
         static public void Edit(Book book)
         {
             Add(book);

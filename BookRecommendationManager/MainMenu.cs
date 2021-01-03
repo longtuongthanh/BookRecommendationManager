@@ -55,7 +55,7 @@ namespace BookRecommendationManager
         {
             ClearPanelLoad();
 
-            FormBug frmBug = new FormBug() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormCatalog frmBug = new FormCatalog() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmBug.FormBorderStyle = FormBorderStyle.None;
             this.panelLoad.Controls.Add(frmBug);
             frmBug.Show();

@@ -66,6 +66,6 @@ namespace BookRecommendationManager.Model
         public string Link { get; set; }
         public List<string> Tags { get; set; } = new List<string>();
         public List<Comment> Comment { get; set; } = new List<Comment>();
-        public List<string> BaoCao { get; set; } = new List<string>();
+        public List<Comment> BaoCao { get; set; } = new List<Comment>();
     }
 }

@@ -54,6 +54,35 @@ namespace BookRecommendationManager
                 MessageBox.Show(LoadDataFromFirebaseFailed);
                 return;
             }
+
+            #region Check DB code
+            Util.StartLoadingForCursor();
+            var task = Firebase.Ins.Client.Child("Code").OnceSingleAsync<string>();
+            var taskEnd = Task.WhenAny(task, Task.Delay(Firebase.TimeOut));
+            taskEnd.Wait();
+            if (taskEnd.Result == task)
+            {
+                try { task.Wait(); } catch
+                {
+                    MessageBox.Show(LoadDataFromFirebaseFailed);
+                    return;
+                }
+
+                var taskResult = task.Result;
+                if (taskResult != textBox1.Text)
+                {
+                    MessageBox.Show(WrongDatabaseCode);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show(LoadDataFromFirebaseFailed);
+                return;
+            }
+            Util.StopLoadingForCursor();
+            #endregion
+
             OpenMainMenu();
         }
 
@@ -95,6 +124,8 @@ namespace BookRecommendationManager
             = "Không thể đăng nhập. Xin thử lại sau ít phút.";
         private const string LoadDataFromFirebaseFailed =
             "Không truy cập được hệ thống dữ liệu.\nXin thử lại sau ít phút.";
+        private const string WrongDatabaseCode =
+            "Database code sai. Vui lòng liên hệ quản trị database để thêm chi tiết.";
         #endregion
 
         private void btnExit_Click(object sender, EventArgs e)

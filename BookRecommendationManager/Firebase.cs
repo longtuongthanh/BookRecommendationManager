@@ -32,7 +32,7 @@ namespace BookRecommendationManager
         #endregion
 
         #region Constant
-        private const int TimeOut = 10000;
+        public const int TimeOut = 10000;
         #endregion
 
         #region FirebaseSetting
