@@ -8,7 +8,8 @@ namespace BookRecommendationManager.Model
 {
     public class Error
     {
-        public string UID;
-        public string ErrorContent;
+        public string UID { get; set; }
+        public string ErrorContent { get; set; }
+        public DateTime Timestamp { get; set; }
     }
 }

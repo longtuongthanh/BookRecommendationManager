@@ -237,7 +237,7 @@ namespace BookRecommendationManager
         }
         private bool LoadError()
         {
-            var task = Client.Child("Error").OnceAsync<string>();
+            var task = Client.Child("Error").OnceAsync<Error>();
             var taskEnd = Task.WhenAny(task, Task.Delay(TimeOut));
             taskEnd.Wait();
             if (taskEnd.Result == task)
@@ -246,7 +246,7 @@ namespace BookRecommendationManager
 
                 var taskResult = task.Result;
                 Database.Errors = taskResult.Select(
-                    item => new Error { ErrorContent = item.Object, UID = item.Key }
+                    item => item.Object
                     ).ToList();
                 return !task.IsFaulted;
             }

@@ -24,6 +24,7 @@ namespace BookRecommendationManager
         private void button1_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
+            this.Hide();
             this.Dispose();
         }
 

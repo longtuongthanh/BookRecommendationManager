@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelDesc = new System.Windows.Forms.Label();
@@ -43,24 +42,11 @@
             this.labelName = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.picture = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(639, 407);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(86, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "thêm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -184,6 +170,7 @@
             this.textBox1.Location = new System.Drawing.Point(186, 8);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(530, 26);
             this.textBox1.TabIndex = 2;
             // 
@@ -235,16 +222,29 @@
             this.picture.TabStop = false;
             this.picture.Click += new System.EventHandler(this.picture_Click_1);
             // 
-            // AddBooks
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button1.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(611, 423);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 29);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Sửa";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // EditBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 474);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.picture);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AddBooks";
+            this.Name = "EditBooks";
             this.Text = "AddBooks";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -256,7 +256,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox picture;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox3;
@@ -271,5 +270,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -21,7 +21,9 @@ namespace BookRecommendationManager
         }
         public void LoadBooks ()
         {
-            foreach (Book item in Database.Books.Where(item => item.BaoCao != null && item.BaoCao.Count > 0))
+            IEnumerable<Book> reportedBook = Database.Books.Where(
+                item => item.BaoCao != null && item.BaoCao.Count > 0);
+            foreach (Book item in reportedBook)
             {
 
 
@@ -35,11 +37,16 @@ namespace BookRecommendationManager
                 ApplyBookItem(pal, item);
                 flowLayoutPanel1.Controls.Add(pal);
                 
-            }    
+            }
+            if (reportedBook.Count() > 0)
+            {
+                label1.Hide();
+            }
         }
         public void ClearBooks()
         {
             flowLayoutPanel1.Controls.Clear();
+            label1.Show();
         }
         public void ApplyBookItem(Panel panel, Book book)
         {

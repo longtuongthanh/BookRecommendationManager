@@ -28,8 +28,7 @@ namespace BookRecommendationManager
             richTextBox1.Text = book.Description;
             foreach (string item in book.Tags)
             {
-                comboBox1.SelectedItem = item;
-                comboBox1_SelectionChangeCommitted(null, null);
+                AddTagItem(item);
             }
             picture.ImageLocation = book.PictureFile;
 
@@ -40,21 +39,22 @@ namespace BookRecommendationManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Book book = new Book();
-            book.Name = textBox1.Text;
-            book.Author = textBox2.Text;
-            book.Link = textBox3.Text;
-            book.Description = richTextBox1.Text;
-            book.Tags = tagList;
+            currentBook.Name = textBox1.Text;
+            currentBook.Author = textBox2.Text;
+            currentBook.Link = textBox3.Text;
+            currentBook.Description = richTextBox1.Text;
+            currentBook.Tags = tagList;
             
-            if (picture.ImageLocation != book.PictureFile)
+            if (picture.ImageLocation != currentBook.PictureFile)
             {
                 Picture pic = new Picture(picture.ImageLocation);
                 pic.LoadContent();
                 pic.SetNewName();
-                book.PictureFile = pic.FilePath;
+                currentBook.PictureFile = pic.FilePath;
                 Database.Add(pic);
             }
+
+            Database.Edit(currentBook);
 
             MessageBox.Show("Sửa thành công");
         }
@@ -94,13 +94,10 @@ namespace BookRecommendationManager
             panel1.Top = flowLayoutPanel1.Bottom - deltaDistance;
         }
 
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        private void AddTagItem(string tag)
         {
-            // If the tag is already in the tagList, return.
-            if (tagList.Any(item => item == comboBox1.SelectedItem.ToString()))
-                return;
             flowLayoutPanel1.PerformLayout();
-            TagItem tagItem = new TagItem(comboBox1.SelectedItem.ToString())
+            TagItem tagItem = new TagItem(tag)
             { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
 
             tagItem.FormBorderStyle = FormBorderStyle.None;
@@ -118,8 +115,19 @@ namespace BookRecommendationManager
             tagItem.Show();
             //flowLayoutPanel1.PerformLayout();
 
-            tagList.Add(comboBox1.SelectedItem.ToString());
+            tagList.Add(tag);
+            tagItem.Disposed += (obj, arg) => tagList.Remove(tag);
             tagItem.SizeChanged += (obj, arg) => flowLayoutPanel1.Invalidate();
+        }
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // Error check
+            if (comboBox1.SelectedItem == null)
+                return;
+            // If the tag is already in the tagList, return.
+            if (tagList.Any(item => item == comboBox1.SelectedItem.ToString()))
+                return;
+            AddTagItem(comboBox1.SelectedItem.ToString());
         }
 
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)

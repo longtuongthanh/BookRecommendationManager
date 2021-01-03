@@ -159,6 +159,12 @@
     <Compile Include="FormCatalog.Designer.cs">
       <DependentUpon>FormCatalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBugDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBugDetail.Designer.cs">
+      <DependentUpon>FormBugDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCatalog.resx">
       <DependentUpon>FormCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBugDetail.resx">
+      <DependentUpon>FormBugDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
