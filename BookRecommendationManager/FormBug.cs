@@ -35,12 +35,7 @@ namespace BookRecommendationManager
         private void LoadBugForm()
         {
             var ErrorBindingSource = new BindingSource();
-            ErrorBindingSource.DataSource = Database.Errors.ConvertAll(item =>
-                new Error {
-                    Timestamp = item.Timestamp,
-                    ErrorContent = item.ErrorContent,
-                    UID = GetNicknameOrUID(item.UID)
-                });
+            ErrorBindingSource.DataSource = Database.Errors;
             dataGridView1.DataSource = ErrorBindingSource;
             dataGridView1.Refresh();
         }
@@ -57,6 +52,7 @@ namespace BookRecommendationManager
 
             FormBugDetail bugDetail = new FormBugDetail(error);
             bugDetail.ShowDialog();
+            LoadBugForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,9 +62,10 @@ namespace BookRecommendationManager
                 != DialogResult.Yes)
                 return;
 
-            Error error = dataGridView1.SelectedRows[0].Tag as Error;
+            Error error = dataGridView1.SelectedRows[0].DataBoundItem as Error;
 
             Database.Delete(error);
+            LoadBugForm();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -77,6 +74,7 @@ namespace BookRecommendationManager
                 "dữ liệu không?", "Xác nhận", MessageBoxButtons.YesNo)
                 != DialogResult.Yes)
                 return;
+            LoadBugForm();
         }
     }
 }

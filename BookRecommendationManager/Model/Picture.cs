@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace BookRecommendationManager.Model
 {
-    // WARNING: DO NOT SERIALIZE & PUSH TO DATABASE
     public class Picture : IDisposable
     {
         private Image image = null;
@@ -18,7 +17,7 @@ namespace BookRecommendationManager.Model
 
         public string FilePath { get; set; }
         public string Content { get; set; }
-        
+
         public void SetNewName()
         {
             if (FilePath == null)
@@ -27,6 +26,11 @@ namespace BookRecommendationManager.Model
             string newName = Guid.NewGuid().ToString();
             string type = FilePath.Split('.').Last();
             FilePath = newName + '.' + type;
+        }
+
+        public string GetAppDataPath()
+        {
+            return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Nhom 20/BookRecApp";
         }
 
         public Image GetImage()
@@ -41,20 +45,21 @@ namespace BookRecommendationManager.Model
             // Make picture from hash
             if (Content != null)
             {
-                using (FileStream cout = File.OpenWrite(FilePath))
+                using (FileStream cout = File.OpenWrite(GetAppDataPath() + FilePath))
                 {
                     byte[] data = Util.Decrypt(Content);
                     cout.Write(data, 0, data.Length);
                 }
-                return image = Image.FromFile(FilePath);
+                return image = Image.FromFile(GetAppDataPath() + FilePath);
             }
             else // Get picture from file
             {
                 try
                 {
-                    return image = Image.FromFile(FilePath);
+                    return image = Image.FromFile(GetAppDataPath() + FilePath);
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     if (e is OutOfMemoryException)
                         throw e;
                     Database.PostError(e);
@@ -74,8 +79,8 @@ namespace BookRecommendationManager.Model
             // Invalid Picture object
             if (FilePath == null)
                 return;
-            
-            using (FileStream cout = File.OpenWrite(FilePath))
+
+            using (FileStream cout = File.OpenWrite(GetAppDataPath() + FilePath))
             {
                 byte[] data = Util.Decrypt(Content);
                 cout.Write(data, 0, data.Length);
@@ -89,7 +94,7 @@ namespace BookRecommendationManager.Model
             if (FilePath == null)
                 return;
 
-            using (FileStream cin = File.OpenRead(FilePath))
+            using (FileStream cin = File.OpenRead(GetAppDataPath() + FilePath))
             {
                 byte[] data = new byte[cin.Length];
                 cin.Read(data, 0, data.Length);

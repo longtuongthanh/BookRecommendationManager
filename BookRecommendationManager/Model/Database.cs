@@ -261,8 +261,9 @@ namespace BookRecommendationManager.Model
                 {
                     string uid = e.UID;
                     if (uid != null || uid == "")
-                        Firebase.Ins.Client.Child("Error").Child(uid + DateTime.Now.ToString()).DeleteAsync().Wait();
+                        Firebase.Ins.Client.Child("Error").Child(uid + DateTime.Now.Ticks.ToString()).DeleteAsync().Wait();
                     else Console.WriteLine("ERROR: UID is null");
+                    Errors.Remove(e);
                 }
             }
             catch (Exception e2)

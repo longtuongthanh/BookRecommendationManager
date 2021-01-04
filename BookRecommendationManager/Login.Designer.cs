@@ -105,7 +105,6 @@
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(225, 20);
             this.Username.TabIndex = 2;
-            this.Username.Text = "test@gmail.com";
             // 
             // label1
             // 
@@ -139,7 +138,6 @@
             this.Password.PasswordChar = '*';
             this.Password.Size = new System.Drawing.Size(225, 20);
             this.Password.TabIndex = 2;
-            this.Password.Text = "test1234";
             // 
             // label2
             // 
@@ -221,7 +219,6 @@
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(225, 20);
             this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "test1234";
             // 
             // panel4
             // 
