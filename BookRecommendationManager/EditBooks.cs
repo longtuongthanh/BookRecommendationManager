@@ -30,7 +30,7 @@ namespace BookRecommendationManager
             {
                 AddTagItem(item);
             }
-            picture.ImageLocation = book.PictureFile;
+            picture.ImageLocation = Picture.GetAppDataPath() + "\\" + book.PictureFile;
 
             comboBox1.DataSource = Database.Tags;
 
@@ -45,7 +45,7 @@ namespace BookRecommendationManager
             currentBook.Description = richTextBox1.Text;
             currentBook.Tags = tagList;
             
-            if (picture.ImageLocation != currentBook.PictureFile)
+            if (picture.ImageLocation != Picture.GetAppDataPath() + "\\" + currentBook.PictureFile)
             {
                 Picture pic = new Picture(picture.ImageLocation);
                 pic.LoadContent();
